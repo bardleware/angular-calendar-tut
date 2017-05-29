@@ -1,0 +1,19 @@
+<h1>
+  {{title}}
+</h1>
+
+<div class="calendar-body">
+  <div *ngFor="let day of month" class="day" (click)="selectDay(day)" [class.selected]="day===selectedDay">
+    <div class="day-header">
+    <span class="date-month">{{day.date}}</span> 
+    <div>{{ day.date | dayOfTheWeek}}</div>
+    </div>
+    <div class="event">
+      {{day.event}}
+    </div>
+  </div>
+</div>
+
+<div class="eventbox">
+  Edit events here: <input type="text" class="event-editor"[(ngModel)]="selectedDay.event" placeholder="">
+</div>
